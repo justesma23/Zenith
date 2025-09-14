@@ -1,17 +1,27 @@
 ﻿@{
-    ViewData["Title"] = "Bienvenido";
+    ViewData["Title"] = "Inicio";
 }
+
 <section class="welcome">
+    <!-- 🎥 Video de fondo -->
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="~/videos/fondo.mp4" type="video/mp4">
+        Tu navegador no soporta video en HTML5.
+    </video>
+
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="~/videos/fondo.mp4" type="video/mp4">
+        Tu navegador no soporta video de fondo.
+    </video>
+
+    <!-- ✨ Contenido encima del video -->
     <div class="welcome-content">
-        <h1>Bienvenido a Zenith</h1>
-        <p>Tu entrenador personal digital para alcanzar tus metas de salud y fitness.</p>
+        <h1>Bienvenido a Zenith Fitness</h1>
+        <p>Tu plataforma para rutinas, nutrición, progreso y comunidad.</p>
+
         <div class="welcome-buttons">
             <a asp-controller="Home" asp-action="Login" class="btn">Iniciar Sesión</a>
-            <a asp-controller="Home" asp-action="Registro" class="btn btn-outline">Crear Cuenta</a>
+            <a asp-controller="Home" asp-action="Registro" class="btn">Crear Cuenta</a>
         </div>
     </div>
 </section>
-
-<footer>
-    <p>© 2025 Zenith Web | Todos los derechos reservados</p>
-</footer>

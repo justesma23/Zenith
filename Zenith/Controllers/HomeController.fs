@@ -49,6 +49,10 @@ type HomeController (logger : ILogger<HomeController>) =
     member this.Informacion () =
         this.View()
 
+        // Comunidad.cshtml
+    member this.Comunidad () =
+         this.View()
+
     // Dataset.cshtml
     member this.Dataset () =
         this.View()

@@ -1,17 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Dataset";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="hero">
     <h1>Dataset</h1>
-    <p>Información cargada dinámicamente desde JSON</p>
+    <p>Registros de usuarios y progreso</p>
 </section>
 
 <div class="content">
-    <h2 style="color:#007B9E;">Registros</h2>
-    <table id="datasetTable" style="width:100%; border-collapse: collapse; box-shadow:0 4px 8px rgba(0,0,0,0.1); margin-top:1rem;">
-        <thead style="background:#007B9E; color:white;">
+    <table style="width:100%; border-collapse: collapse;">
+        <thead style="background:#00a6b4; color:white;">
             <tr>
                 <th style="padding:0.8rem;">Usuario</th>
                 <th style="padding:0.8rem;">Rutina</th>
@@ -20,31 +18,24 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Aquí se inyectarán las filas dinámicamente -->
+            <tr style="background:#f5f5f5;">
+                <td style="padding:0.8rem;">Ana</td>
+                <td style="padding:0.8rem;">Cardio</td>
+                <td style="padding:0.8rem;">320</td>
+                <td style="padding:0.8rem;">Semana 1</td>
+            </tr>
+            <tr>
+                <td style="padding:0.8rem;">Carlos</td>
+                <td style="padding:0.8rem;">Fuerza</td>
+                <td style="padding:0.8rem;">450</td>
+                <td style="padding:0.8rem;">Semana 2</td>
+            </tr>
+            <tr style="background:#f5f5f5;">
+                <td style="padding:0.8rem;">María</td>
+                <td style="padding:0.8rem;">Yoga</td>
+                <td style="padding:0.8rem;">200</td>
+                <td style="padding:0.8rem;">Semana 3</td>
+            </tr>
         </tbody>
     </table>
 </div>
-
-@section Scripts {
-<script>
-        // Llamada para traer el JSON
-        fetch('/data/dataset.json')
-            .then(response => response.json())
-            .then(data => {
-                const tbody = document.querySelector('#datasetTable tbody');
-                data.forEach(item => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td style="padding:0.8rem;">${item.usuario}</td>
-                        <td style="padding:0.8rem;">${item.rutina}</td>
-                        <td style="padding:0.8rem;">${item.calorias}</td>
-                        <td style="padding:0.8rem;">${item.progreso}</td>
-                    `;
-                    tbody.appendChild(row);
-                });
-            })
-            .catch(error => {
-                console.error('Error cargando dataset:', error);
-            });
-</script>
-}

@@ -16,6 +16,7 @@ open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
 
+
 module Program =
     let exitCode = 0
 
