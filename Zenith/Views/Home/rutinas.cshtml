@@ -4,5 +4,116 @@
 
 <section class="hero">
     <h1>Rutinas Personalizadas</h1>
-    <p>Aquí verás tus planes de entrenamiento adaptados a tus metas 💪</p>
+    <p>Selecciona tu objetivo y descubre el plan ideal 💪</p>
 </section>
+
+<div class="content">
+    <div class="routine-grid">
+        <!-- Hipertrofia -->
+        <div class="routine-card" onclick="openModal('hipertrofia')">
+            <h3>Hipertrofia Muscular</h3>
+            <p>Gana masa muscular de forma progresiva</p>
+        </div>
+
+        <!-- Definición -->
+        <div class="routine-card" onclick="openModal('definicion')">
+            <h3>Definición</h3>
+            <p>Reduce grasa corporal manteniendo músculo</p>
+        </div>
+
+        <!-- Resistencia -->
+        <div class="routine-card" onclick="openModal('resistencia')">
+            <h3>Resistencia</h3>
+            <p>Mejora tu capacidad aeróbica</p>
+        </div>
+
+        <!-- Salud general -->
+        <div class="routine-card" onclick="openModal('salud')">
+            <h3>Salud General</h3>
+            <p>Rutina balanceada para todos los niveles</p>
+        </div>
+    </div>
+</div>
+
+<!-- 🔹 MODALES -->
+<div id="hipertrofia" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('hipertrofia')">&times;</span>
+        <h2>Hipertrofia Muscular</h2>
+        <p>Rutina enfocada en ganar masa muscular con cargas progresivas.</p>
+        <ul>
+            <li>Press banca – 4x8-10</li>
+            <li>Sentadillas – 4x10</li>
+            <li>Peso muerto – 4x6</li>
+            <li>Press militar – 4x10</li>
+            <li>Fondos en paralelas – 3x12</li>
+            <li>Cardio ligero – 15 min post-entrenamiento</li>
+        </ul>
+    </div>
+</div>
+
+<div id="definicion" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('definicion')">&times;</span>
+        <h2>Definición</h2>
+        <p>Enfocada en pérdida de grasa y tonificación.</p>
+        <ul>
+            <li>Circuito HIIT – 20 min</li>
+            <li>Flexiones – 4x15</li>
+            <li>Burpees – 4x12</li>
+            <li>Plancha – 4x60s</li>
+            <li>Cinta caminadora – 25 min</li>
+        </ul>
+    </div>
+</div>
+
+<div id="resistencia" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('resistencia')">&times;</span>
+        <h2>Resistencia</h2>
+        <p>Ideal para mejorar la capacidad cardiovascular.</p>
+        <ul>
+            <li>Carrera continua – 40 min</li>
+            <li>Bicicleta estática – 30 min</li>
+            <li>Saltar la cuerda – 5x2min</li>
+            <li>Burpees – 3x20</li>
+            <li>Remo – 15 min</li>
+        </ul>
+    </div>
+</div>
+
+<div id="salud" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('salud')">&times;</span>
+        <h2>Salud General</h2>
+        <p>Rutina completa para mantenerse activo y saludable.</p>
+        <ul>
+            <li>Calentamiento dinámico – 10 min</li>
+            <li>Sentadillas – 3x15</li>
+            <li>Flexiones – 3x12</li>
+            <li>Abdominales – 3x20</li>
+            <li>Caminadora – 20 min</li>
+            <li>Estiramientos – 10 min</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function openModal(id) {
+        document.getElementById(id).classList.add("active");
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).classList.remove("active");
+    }
+
+    // Cerrar si se da click fuera del contenido
+    window.onclick = function (event) {
+        let modals = document.getElementsByClassName("modal");
+        for (let m of modals) {
+            if (event.target === m) {
+                m.classList.remove("active");
+            }
+        }
+    }
+</script>

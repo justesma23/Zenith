@@ -3,6 +3,115 @@
 }
 
 <section class="hero">
-    <h1>Plan de Nutrición</h1>
-    <p>Encuentra recomendaciones alimenticias para mejorar tu rendimiento 🍎</p>
+    <h1>Planes de Nutrición</h1>
+    <p>Selecciona tu objetivo y obtén un plan alimenticio personalizado 🥗</p>
 </section>
+
+<div class="content">
+    <div class="routine-grid">
+        <!-- Ganar Masa Muscular -->
+        <div class="routine-card" onclick="openModal('nutricion-masa')">
+            <h3>Ganar Masa Muscular</h3>
+            <p>Plan alto en proteínas y calorías</p>
+        </div>
+
+        <!-- Definición -->
+        <div class="routine-card" onclick="openModal('nutricion-definicion')">
+            <h3>Definición</h3>
+            <p>Alimentación para perder grasa manteniendo músculo</p>
+        </div>
+
+        <!-- Mantener -->
+        <div class="routine-card" onclick="openModal('nutricion-mantener')">
+            <h3>Mantener</h3>
+            <p>Dieta balanceada para estabilidad de peso</p>
+        </div>
+
+        <!-- Salud general -->
+        <div class="routine-card" onclick="openModal('nutricion-salud')">
+            <h3>Salud General</h3>
+            <p>Nutrición balanceada y saludable para todos</p>
+        </div>
+    </div>
+</div>
+
+<!-- 🔹 MODALES -->
+<div id="nutricion-masa" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('nutricion-masa')">&times;</span>
+        <h2>Nutrición para Ganar Masa Muscular</h2>
+        <p>Plan diseñado para aumentar masa muscular con superávit calórico.</p>
+        <ul>
+            <li>Desayuno: Avena + huevos + banano</li>
+            <li>Media mañana: Yogur griego + frutos secos</li>
+            <li>Almuerzo: Arroz integral + pollo a la plancha + aguacate</li>
+            <li>Merienda: Batido de proteína + fruta</li>
+            <li>Cena: Salmón + ensalada + papa al horno</li>
+        </ul>
+    </div>
+</div>
+
+<div id="nutricion-definicion" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('nutricion-definicion')">&times;</span>
+        <h2>Nutrición para Definición</h2>
+        <p>Enfocado en déficit calórico para reducción de grasa corporal.</p>
+        <ul>
+            <li>Desayuno: Claras de huevo + espinaca + pan integral</li>
+            <li>Media mañana: Batido verde (espinaca, pepino, manzana)</li>
+            <li>Almuerzo: Pechuga de pollo + brócoli + quinoa</li>
+            <li>Merienda: Atún con galletas integrales</li>
+            <li>Cena: Ensalada grande con proteína magra</li>
+        </ul>
+    </div>
+</div>
+
+<div id="nutricion-mantener" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('nutricion-mantener')">&times;</span>
+        <h2>Nutrición para Mantener</h2>
+        <p>Plan balanceado para mantener el peso actual.</p>
+        <ul>
+            <li>Desayuno: Tostadas integrales + aguacate + huevo</li>
+            <li>Media mañana: Fruta + puñado de nueces</li>
+            <li>Almuerzo: Pasta integral + carne magra + ensalada</li>
+            <li>Merienda: Yogur + avena</li>
+            <li>Cena: Pollo al horno + verduras salteadas</li>
+        </ul>
+    </div>
+</div>
+
+<div id="nutricion-salud" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('nutricion-salud')">&times;</span>
+        <h2>Nutrición para Salud General</h2>
+        <p>Plan saludable y equilibrado para bienestar integral.</p>
+        <ul>
+            <li>Desayuno: Smoothie de frutas + semillas de chía</li>
+            <li>Media mañana: Taza de frutos rojos</li>
+            <li>Almuerzo: Lentejas + arroz integral + ensalada</li>
+            <li>Merienda: Manzana + mantequilla de maní</li>
+            <li>Cena: Pescado blanco + verduras al vapor</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function openModal(id) {
+        document.getElementById(id).style.display = "flex";
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    // Cerrar si se da click fuera del contenido
+    window.onclick = function (event) {
+        let modals = document.getElementsByClassName("modal");
+        for (let m of modals) {
+            if (event.target == m) {
+                m.style.display = "none";
+            }
+        }
+    }
+</script>

@@ -4,5 +4,86 @@
 
 <section class="hero">
     <h1>Tu Progreso</h1>
-    <p>Visualiza tus logros y avances en tu camino fitness 📊</p>
+    <p>Visualiza tus avances y mantén la motivación 🚀</p>
 </section>
+
+<div class="content">
+    <!-- 📊 Tarjetas de progreso -->
+    <div class="progress-grid">
+        <!-- Peso corporal -->
+        <div class="progress-card">
+            <h3>Peso Corporal</h3>
+            <canvas id="pesoChart"></canvas>
+        </div>
+
+        <!-- Fuerza en bench press -->
+        <div class="progress-card">
+            <h3>Fuerza (Bench Press)</h3>
+            <canvas id="fuerzaChart"></canvas>
+        </div>
+    </div>
+
+    <!-- ✍ Registro de progreso -->
+    <div class="form-section">
+        <div class="form-card">
+            <h2>Registrar Progreso</h2>
+            <form>
+                <div class="form-group">
+                    <label for="peso">Peso (kg)</label>
+                    <input type="number" id="peso" placeholder="Ej: 72">
+                </div>
+
+                <div class="form-group">
+                    <label for="fuerza">Bench Press (kg)</label>
+                    <input type="number" id="fuerza" placeholder="Ej: 50">
+                </div>
+
+                <button type="button" class="btn">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 📊 Librería Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Gráfica de peso
+    const ctx1 = document.getElementById('pesoChart');
+    new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+            datasets: [{
+                label: 'Peso (kg)',
+                data: [72, 71, 70.5, 70],
+                borderColor: '#00a6b4',
+                backgroundColor: 'rgba(0,166,180,0.2)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } }
+        }
+    });
+
+    // Gráfica de fuerza
+    const ctx2 = document.getElementById('fuerzaChart');
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+            datasets: [{
+                label: 'Bench Press (kg)',
+                data: [50, 55, 60, 65],
+                backgroundColor: '#00a6b4'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } }
+        }
+    });
+</script>

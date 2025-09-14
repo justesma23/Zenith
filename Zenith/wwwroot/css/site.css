@@ -140,7 +140,7 @@ body {
 .form-card {
     max-width: 420px;
     margin: 0 auto;
-    padding: 30px;
+    padding: 30px 25px;
     border-radius: 15px;
     background: white;
     color: #333;
@@ -160,7 +160,7 @@ body {
     }
 
     .form-group input {
-        width: 100%;
+        width: calc(100% - 8px);
         padding: 12px;
         border-radius: 8px;
         border: 1px solid #ccc;
@@ -204,7 +204,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    background: #00a6b4; /* 👈 Color unificado */
+    background: #00a6b4;
     color: white;
     font-size: 1.4em;
     font-weight: bold;
@@ -243,7 +243,7 @@ body {
 footer {
     text-align: center;
     padding: 25px;
-    background: #00a6b4; /* 👈 Mismo color que los módulos y navbar */
+    background: #00a6b4;
     color: white;
     font-size: 0.9em;
     letter-spacing: 0.5px;
@@ -253,6 +253,7 @@ footer {
         color: white;
         text-decoration: underline;
     }
+
 /* 🎥 Video de fondo */
 .bg-video {
     position: absolute;
@@ -260,8 +261,8 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Escala el video para cubrir todo */
-    z-index: -1; /* Manda el video al fondo */
+    object-fit: cover;
+    z-index: -1;
 }
 
 /* Sección de bienvenida */
@@ -278,5 +279,445 @@ footer {
 }
 
 .welcome-content {
-    z-index: 2; /* Mantiene el texto y botones encima del video */
+    z-index: 2;
+}
+
+/* ==========================
+   RUTINAS EXPANDIBLES
+========================== */
+.routine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.routine-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+    .routine-card:hover {
+        transform: translateY(-5px);
+        background: #eaf6f9;
+    }
+
+/* ==========================
+   MODAL (emergente centrado)
+========================== */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+    .modal.active {
+        display: flex; /* 👈 Solo visible cuando tiene "active" */
+    }
+
+.modal-content {
+    background: #fff;
+    padding: 25px 40px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease;
+    position: relative;
+}
+
+    .modal-content h2 {
+        color: #00a6b4;
+        margin-top: 0;
+    }
+
+    .modal-content ul {
+        margin-top: 15px;
+        padding-left: 20px;
+    }
+
+/* Botón cerrar */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+    .close:hover {
+        color: #000;
+    }
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.hero {
+    text-align: center;
+    padding: 60px 20px; /* antes 100px */
+}
+
+.form-section {
+    padding: 40px 20px; /* antes 80px */
+}
+
+.routine-grid {
+    margin-top: 20px; /* antes 40px */
+}
+
+.form-card, .routine-card {
+    padding: 20px; /* antes 30px */
+}
+
+.content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ==========================
+   PROGRESO
+========================== */
+.progress-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.progress-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+    .progress-card h3 {
+        margin-bottom: 15px;
+        color: #00a6b4;
+    }
+
+/* ==========================
+   MÓDULOS CENTRADOS CON VIDEO
+========================== */
+.modules-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.modules-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.modules-title {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+}
+
+/* Grid de los módulos */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+/* Tarjetas de módulos */
+.module-card {
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: rgba(0,166,180,0.85);
+    color: white;
+    font-size: 1.4em;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, background 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+    .module-card h3 {
+        z-index: 2;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .module-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--bg) no-repeat center/cover;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .module-card:hover {
+        transform: scale(1.08);
+        background: rgba(0,140,153,0.9);
+    }
+
+        .module-card:hover::before {
+            opacity: 0.6;
+        }
+
+
+/* 🎥 Video de fondo */
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* detrás del contenido */
+}
+
+
+/* Contenedor home centrado */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+/* 🔹 Frase motivacional */
+.slogan {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+    animation: fadeIn 2s ease;
+}
+
+/* 🔹 Módulos */
+.modules {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.module-card {
+    width: 180px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00a6b4;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+    .module-card:hover {
+        background: #008c99;
+        transform: translateY(-5px);
+    }
+
+/* 🔹 Estadísticas rápidas */
+.quick-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+    .quick-stats div {
+        text-align: center;
+    }
+
+    .quick-stats h3 {
+        font-size: 2em;
+        margin-bottom: 5px;
+        color: #00e6ff;
+    }
+
+/* 🔹 Botón grande */
+.btn-big {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 18px 36px;
+    background: #ff6600;
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+    .btn-big:hover {
+        background: #e65c00;
+        transform: scale(1.05);
+    }
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* 🔹 Frase motivacional */
+.slogan {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+    animation: fadeIn 2s ease;
+}
+
+/* 🔹 Módulos */
+.modules {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.module-card {
+    width: 180px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00a6b4;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+    .module-card:hover {
+        background: #008c99;
+        transform: translateY(-5px);
+    }
+
+/* 🔹 Estadísticas rápidas */
+.quick-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+    .quick-stats div {
+        text-align: center;
+    }
+
+    .quick-stats h3 {
+        font-size: 2em;
+        margin-bottom: 5px;
+        color: #00e6ff;
+    }
+
+/* 🔹 Botón grande */
+.btn-big {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 18px 36px;
+    background: #ff6600;
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+    .btn-big:hover {
+        background: #e65c00;
+        transform: scale(1.05);
+    }
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contenedor de los módulos en home */
+.modules {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    justify-content: center;
+    background: transparent; /* 👈 elimina el recuadro */
+    padding: 0; /* 👈 elimina padding sobrante */
+    box-shadow: none; /* 👈 asegura que no tenga sombra */
 }

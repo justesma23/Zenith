@@ -1,18 +1,34 @@
 ﻿@{
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = "Home";
 }
 
-<section class="modules">
-    <a asp-controller="Home" asp-action="Rutinas" class="module-card" style="--bg:url('https://source.unsplash.com/600x600/?workout');">
-        <h3>Rutinas</h3>
-    </a>
-    <a asp-controller="Home" asp-action="Nutricion" class="module-card" style="--bg:url('https://source.unsplash.com/600x600/?nutrition');">
-        <h3>Nutrición</h3>
-    </a>
-    <a asp-controller="Home" asp-action="Progreso" class="module-card" style="--bg:url('https://source.unsplash.com/600x600/?progress,fitness');">
-        <h3>Progreso</h3>
-    </a>
-    <a asp-controller="Home" asp-action="Comunidad" class="module-card" style="--bg:url('https://source.unsplash.com/600x600/?community,fitness');">
-        <h3>Comunidad</h3>
-    </a>
-</section>
+<!-- 🎥 Video de fondo -->
+<video autoplay muted loop class="bg-video">
+    <source src="~/videos/fondo.mp4" type="video/mp4">
+    Tu navegador no soporta video HTML5.
+</video>
+
+<!-- Contenedor principal -->
+<div class="home-container">
+    <!-- 🔹 Frase motivacional -->
+    <h2 class="slogan">"El límite solo lo decides tú 🚀"</h2>
+
+    <!-- 🔹 Módulos -->
+    <h1 class="choose-module">Elige tu módulo</h1>
+    <div class="modules">
+        <a class="module-card" href="/Home/Rutinas"><h3>Rutinas</h3></a>
+        <a class="module-card" href="/Home/Nutricion"><h3>Nutrición</h3></a>
+        <a class="module-card" href="/Home/Progreso"><h3>Progreso</h3></a>
+        <a class="module-card" href="/Home/Comunidad"><h3>Comunidad</h3></a>
+    </div>
+
+    <!-- 🔹 Estadísticas rápidas -->
+    <div class="quick-stats">
+        <div><h3>+200</h3><p>Rutinas disponibles</p></div>
+        <div><h3>+150</h3><p>Planes de nutrición</p></div>
+        <div><h3>+500</h3><p>Usuarios activos</p></div>
+    </div>
+
+    <!-- 🔹 Botón acción rápida -->
+    <a href="/Home/Progreso" class="btn-big">📈 Ver tu progreso</a>
+</div>
