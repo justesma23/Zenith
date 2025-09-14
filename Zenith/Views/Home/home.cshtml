@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+<header class="navbar">
+    <div class="logo">🏋️ Zenith</div>
+    <nav>
+        <ul>
+            <li><a asp-controller="Home" asp-action="Rutinas">Rutinas</a></li>
+            <li><a asp-controller="Home" asp-action="Nutricion">Nutrición</a></li>
+            <li><a asp-controller="Home" asp-action="Progreso">Progreso</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="modules">
+    <a asp-controller="Home" asp-action="Rutinas" class="module-card" style="--bg:url('https://source.unsplash.com/600x600/?workout');">
+        <h3>Rutinas</h3>
+    </a>
+    <a asp-controller="Home" asp-action="Nutricion" class="module-card" style="--bg:url('https://source.unsplash.com/600x600/?nutrition');">
+        <h3>Nutrición</h3>
+    </a>
+    <a asp-controller="Home" asp-action="Progreso" class="module-card" style="--bg:url('https://source.unsplash.com/600x600/?progress,fitness');">
+        <h3>Progreso</h3>
+    </a>
+</section>

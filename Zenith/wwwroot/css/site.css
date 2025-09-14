@@ -1,0 +1,255 @@
+﻿/* ==========================
+   RESET Y BASE
+========================== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eaf6f9; /* Fondo claro aguamarina */
+    color: #333;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: #00a6b4;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+    .navbar a {
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ff6600; /* Naranja acento */
+        }
+
+/* ==========================
+   PANTALLA DE BIENVENIDA
+========================== */
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://source.unsplash.com/1600x900/?fitness,training") no-repeat center/cover;
+    color: white;
+    padding: 40px 20px;
+}
+
+    .welcome h1 {
+        font-size: 2.8em;
+        margin-bottom: 15px;
+    }
+
+    .welcome p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        color: #eee;
+    }
+
+.welcome-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* ==========================
+   BOTONES
+========================== */
+.btn {
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    background: #00a6b4; /* Aguamarina principal */
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+    .btn:hover {
+        background: #008c99; /* Aguamarina más oscuro */
+        transform: translateY(-3px);
+    }
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #00a6b4;
+    color: #00a6b4;
+}
+
+    .btn-outline:hover {
+        background: #00a6b4;
+        color: white;
+    }
+
+/* ==========================
+   HERO (PÁGINAS SECUNDARIAS)
+========================== */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(rgba(0,166,180,0.7), rgba(0,166,180,0.7)), url("https://source.unsplash.com/1600x600/?gym,fitness") no-repeat center/cover;
+    color: white;
+}
+
+    .hero h1 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1.1em;
+        color: #f9f9f9;
+    }
+
+/* ==========================
+   FORMULARIOS (LOGIN / REGISTRO)
+========================== */
+.form-section {
+    padding: 80px 20px;
+    text-align: center;
+    background: #eaf6f9;
+}
+
+    .form-section h2 {
+        font-size: 2em;
+        margin-bottom: 10px;
+        color: #008c99;
+    }
+
+    .form-section p {
+        margin-bottom: 30px;
+        color: #555;
+    }
+
+.form-card {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: white;
+    color: #333;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        color: #008c99;
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+        background: #f9f9f9;
+        color: #333;
+        transition: border-color 0.3s;
+    }
+
+        .form-group input:focus {
+            border: 2px solid #00a6b4;
+            outline: none;
+        }
+
+.alt-text {
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+    .alt-text a {
+        color: #00a6b4;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+/* ==========================
+   MÓDULOS
+========================== */
+.modules {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 60px 40px;
+    background: #eaf6f9;
+}
+
+.module-card {
+    position: relative;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: #00a6b4;
+    color: white;
+    font-size: 1.4em;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, background 0.3s ease;
+    text-decoration: none;
+}
+
+    .module-card h3 {
+        z-index: 2;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .module-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--bg) no-repeat center/cover;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .module-card:hover {
+        transform: scale(1.08);
+        background: #008c99;
+    }
+
+        .module-card:hover::before {
+            opacity: 0.7;
+        }
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #00a6b4;
+    color: white;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+    footer a {
+        color: white;
+        text-decoration: underline;
+    }

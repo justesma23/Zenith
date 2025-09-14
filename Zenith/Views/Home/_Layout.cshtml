@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Zenith</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F5F5F5;
+            color: #333;
+        }
+
+        header {
+            background-color: #007B9E;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+            header .logo {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+            nav a:hover {
+                color: #FFD700;
+            }
+
+        footer {
+            background: #004C63;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x600/?fitness,health') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .content {
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🏋️ Zenith</div>
+        <nav>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Home">Inicio</a></li>
+                <li><a asp-controller="Home" asp-action="Informacion">Información</a></li>
+                <li><a asp-controller="Home" asp-action="Dataset">Dataset</a></li>
+                <li><a asp-controller="Home" asp-action="Nosotros">Nosotros</a></li>
+                <li><a asp-controller="Home" asp-action="Login">Salir</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer>
+        © 2025 Zenith Fitness | Todos los derechos reservados
+    </footer>
+</body>
+</html>

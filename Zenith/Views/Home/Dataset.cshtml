@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Dataset";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="hero">
+    <h1>Dataset</h1>
+    <p>Información cargada dinámicamente desde JSON</p>
+</section>
+
+<div class="content">
+    <h2 style="color:#007B9E;">Registros</h2>
+    <table id="datasetTable" style="width:100%; border-collapse: collapse; box-shadow:0 4px 8px rgba(0,0,0,0.1); margin-top:1rem;">
+        <thead style="background:#007B9E; color:white;">
+            <tr>
+                <th style="padding:0.8rem;">Usuario</th>
+                <th style="padding:0.8rem;">Rutina</th>
+                <th style="padding:0.8rem;">Calorías</th>
+                <th style="padding:0.8rem;">Progreso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se inyectarán las filas dinámicamente -->
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+<script>
+        // Llamada para traer el JSON
+        fetch('/data/dataset.json')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.querySelector('#datasetTable tbody');
+                data.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td style="padding:0.8rem;">${item.usuario}</td>
+                        <td style="padding:0.8rem;">${item.rutina}</td>
+                        <td style="padding:0.8rem;">${item.calorias}</td>
+                        <td style="padding:0.8rem;">${item.progreso}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error cargando dataset:', error);
+            });
+</script>
+}

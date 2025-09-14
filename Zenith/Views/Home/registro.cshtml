@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Registro";
+}
+<header class="navbar">
+    <div class="logo">🏋️ Zenith</div>
+    <nav>
+        <ul>
+            <li><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+            <li><a asp-controller="Home" asp-action="Login">Iniciar Sesión</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="form-section">
+    <h2>Regístrate en Zenith</h2>
+    <p>Crea tu cuenta y personaliza tu perfil de entrenamiento y nutrición</p>
+    <form class="form-card">
+        <div class="form-group">
+            <label for="name">Nombre completo</label>
+            <input type="text" id="name" required placeholder="Juan Pérez">
+        </div>
+        <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" required placeholder="correo@ejemplo.com">
+        </div>
+        <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn">Registrarse</button>
+        <p class="alt-text">¿Ya tienes cuenta? <a asp-controller="Home" asp-action="Login">Inicia sesión aquí</a></p>
+    </form>
+</section>
